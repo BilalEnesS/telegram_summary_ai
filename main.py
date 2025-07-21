@@ -258,21 +258,16 @@ class AILiteratureScanner:
 
     def start_scheduler(self):
         """Start the scheduler"""
-        # Schedule to run every day at 10:00
-        schedule.every().day.at("10:00").do(self.daily_scan)
-        
+        # Run once immediately
+        self.daily_scan()
+
+        # Schedule to run every 12 hours (e.g., at 09:00 and 21:00)
+        schedule.every().day.at("09:00").do(self.daily_scan)
+        schedule.every().day.at("21:00").do(self.daily_scan)
+
         print("AI Literatür Tarayıcısı başlatıldı!")
-        print("Günlük raporlar her gün 10:00'da gönderilecek.")
-        
-        # Hemen bir rapor gönder (test için)
-        print("🧪 Telegram bağlantısını test ediliyor...")
-        if self.test_telegram_connection():
-            print("🚀 Test başarılı! Günlük rapor gönderiliyor...")
-            self.daily_scan()
-        else:
-            print("❌ Telegram bağlantı testi başarısız!")
-            return
-        
+        print("Günlük raporlar her gün 09:00 ve 21:00'da gönderilecek.")
+
         while True:
             schedule.run_pending()
             time.sleep(60)  # Check every minute
