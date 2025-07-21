@@ -27,14 +27,14 @@ class AILiteratureScanner:
             "http://export.arxiv.org/rss/cs.NE"   # Neural Networks
         ]
         
-        # Haber kaynakları
+        # News Sources
         self.news_sources = [
             {"name": "AI News", "url": "https://www.artificialintelligence-news.com/feed/"},
             {"name": "VentureBeat AI", "url": "https://venturebeat.com/ai/feed/"},
             {"name": "The Batch", "url": "https://www.deeplearning.ai/the-batch/feed/"}
         ]
         
-        # Blog kaynakları
+        # Blog Sources
         self.blog_sources = [
             {"name": "OpenAI Blog", "url": "https://openai.com/blog/rss.xml"},
             {"name": "Google AI Blog", "url": "https://ai.googleblog.com/feeds/posts/default"},
